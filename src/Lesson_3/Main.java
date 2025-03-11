@@ -1,5 +1,13 @@
 package Lesson_3;
 
+import Lesson_3.Insruments.Baraban;
+import Lesson_3.Insruments.Guitara;
+import Lesson_3.Insruments.Instrument;
+import Lesson_3.Insruments.Truba;
+import Lesson_3.Printable.Book;
+import Lesson_3.Printable.Magazine;
+import Lesson_3.Printable.Printable;
+
 import java.util.ArrayList;
 
 public class Main {

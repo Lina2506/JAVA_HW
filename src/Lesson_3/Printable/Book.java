@@ -1,15 +1,15 @@
-package Lesson_3;
+package Lesson_3.Printable;
 
-public class Magazine implements Printable {
+public class Book implements Printable {
     private String title;
 
-    public Magazine(String title) {
+    public Book(String title) {
         this.title = title;
     }
     @Override
-    public void print(){
+    public void print() {
         System.out.println(title);
-    }
+   }
 
     public String getTitle() {
         return title;

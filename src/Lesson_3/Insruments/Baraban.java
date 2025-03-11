@@ -1,4 +1,4 @@
-package Lesson_3;
+package Lesson_3.Insruments;
 
 public class Baraban implements Instrument{
     private int size;
