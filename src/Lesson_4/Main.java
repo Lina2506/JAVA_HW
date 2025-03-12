@@ -3,6 +3,7 @@ package Lesson_4;
 import Lesson_4.User.Users;
 import Lesson_4.User_2.Car;
 import Lesson_4.User_2.Gender;
+import Lesson_4.User_2.Skills;
 import Lesson_4.User_2.User;
 
 import java.util.*;
@@ -38,16 +39,20 @@ public class Main {
 
         //HashSet_USER___________________________________________________
         Set<User>userSet = new HashSet<>();
-        userSet.add(new User(1,"vasya","pupkin","asd@asd.com",31, Gender.MALE, null, null));
-        userSet.add(new User(2,"kolya","pupkin","asd@asd.com",31, Gender.MALE, null, null));
-        userSet.add(new User(3,"ola","pupkin","asd@asd.com",31, Gender.FEMALE, null, null));
-        userSet.add(new User(4,"petya","pupkin","asd@asd.com",31, Gender.MALE, null, null));
-        userSet.add(new User(5,"misha","pupkin","asd@asd.com",31, Gender.MALE, null, null));
-        userSet.add(new User(6,"lena","pupkin","asd@asd.com",31, Gender.FEMALE, null, null));
-        userSet.add(new User(7,"kiril","pupkin","asd@asd.com",31, Gender.MALE, null, null));
-        userSet.add(new User(8,"zhenya","pupkin","asd@asd.com",31, Gender.MALE, null, null));
-        userSet.add(new User(9,"tanya","pupkin","asd@asd.com",31, Gender.FEMALE, null, null));
-        userSet.add(new User(10,"sveta","pupkin","asd@asd.com",31, Gender.FEMALE, null, null));
+        userSet.add(new User(1,"vasya","pupkin","asd@asd.com",31, Gender.MALE, Arrays.asList(new Skills("Java",1)), null));
+        userSet.add(new User(2,"kolya","pupkin","asd@asd.com",31, Gender.MALE, Arrays.asList(new Skills("QA",2),
+                new Skills("html",1),new Skills("pyton",1),new Skills("css",4),new Skills("JS",3)), null));
+        userSet.add(new User(3,"ola","pupkin","asd@asd.com",31, Gender.FEMALE, Arrays.asList(new Skills("css",4),new Skills("JS",3)), null));
+        userSet.add(new User(4,"petya","pupkin","asd@asd.com",31, Gender.MALE, Arrays.asList(new Skills("js",1),
+                new Skills("java",2)), null));
+        userSet.add(new User(5,"misha","pupkin","asd@asd.com",31, Gender.MALE, Arrays.asList(new Skills("QA",2),
+                new Skills("html",1),new Skills("pyton",1)), null));
+        userSet.add(new User(6,"lena","pupkin","asd@asd.com",31, Gender.FEMALE, Arrays.asList(new Skills("QA",2)), null));
+        userSet.add(new User(7,"kiril","pupkin","asd@asd.com",31, Gender.MALE, Arrays.asList(new Skills("Java",1)), null));
+        userSet.add(new User(8,"zhenya","pupkin","asd@asd.com",31, Gender.MALE, Arrays.asList(new Skills("pyton",1),new Skills("css",4),new Skills("JS",3)), null));
+        userSet.add(new User(9,"tanya","pupkin","asd@asd.com",31, Gender.FEMALE, Arrays.asList(new Skills("QA",2),
+                new Skills("html",1),new Skills("pyton",1),new Skills("css",4)), null));
+        userSet.add(new User(10,"sveta","pupkin","asd@asd.com",31, Gender.FEMALE, Arrays.asList(new Skills("html",1),new Skills("pyton",1)), null));
         //_______видалення чоловіків______________________________________
 
         Iterator<User>iterator = userSet.iterator();
@@ -57,7 +62,25 @@ public class Main {
                 iterator.remove();
             }
         }
-        //userSet.removeIf(user -> user.getGender() == Gender.MALE);
+        //userSet.removeIf(user -> user.getGender() == Gender.MALE); - теж працює!
         System.out.println("HashSet без чоловіків"+userSet);
+
+        //TreeSet User______________________________________________________
+        TreeSet<User>treeSet = new TreeSet<>(Comparator.comparingInt(user -> user.getSkills().size()));
+       treeSet.add(new User(1,"vasya","pupkin","asd@asd.com",31, Gender.MALE, Arrays.asList(new Skills("Java",1)), null));
+        treeSet.add(new User(2,"kolya","pupkin","asd@asd.com",31, Gender.MALE, Arrays.asList(new Skills("QA",2),
+                new Skills("html",1),new Skills("pyton",1),new Skills("css",4),new Skills("JS",3)), null));
+        treeSet.add(new User(3,"ola","pupkin","asd@asd.com",31, Gender.FEMALE, Arrays.asList(new Skills("css",4),new Skills("JS",3)), null));
+        treeSet.add(new User(4,"petya","pupkin","asd@asd.com",31, Gender.MALE, Arrays.asList(new Skills("js",1),
+                new Skills("java",2)), null));
+        treeSet.add(new User(5,"misha","pupkin","asd@asd.com",31, Gender.MALE, Arrays.asList(new Skills("QA",2),
+                new Skills("html",1),new Skills("pyton",1)), null));
+        treeSet.add(new User(6,"lena","pupkin","asd@asd.com",31, Gender.FEMALE, Arrays.asList(new Skills("QA",2)), null));
+        treeSet.add(new User(7,"kiril","pupkin","asd@asd.com",31, Gender.MALE, Arrays.asList(new Skills("Java",1)), null));
+        treeSet.add(new User(8,"zhenya","pupkin","asd@asd.com",31, Gender.MALE, Arrays.asList(new Skills("pyton",1),new Skills("css",4),new Skills("JS",3)), null));
+        treeSet.add(new User(9,"tanya","pupkin","asd@asd.com",31, Gender.FEMALE, Arrays.asList(new Skills("QA",2),
+                new Skills("html",1),new Skills("pyton",1),new Skills("css",4)), null));
+        treeSet.add(new User(10,"sveta","pupkin","asd@asd.com",31, Gender.FEMALE, Arrays.asList(new Skills("html",1),new Skills("pyton",1)), null));
+        System.out.println("TreeSet"+treeSet);
     }
 }
