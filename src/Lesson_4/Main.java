@@ -50,5 +50,14 @@ public class Main {
         userSet.add(new User(10,"sveta","pupkin","asd@asd.com",31, Gender.FEMALE, null, null));
         //_______видалення чоловіків______________________________________
 
+        Iterator<User>iterator = userSet.iterator();
+        while(iterator.hasNext()){
+            User user = iterator.next();
+            if (user.getGender() == Gender.MALE){
+                iterator.remove();
+            }
+        }
+        //userSet.removeIf(user -> user.getGender() == Gender.MALE);
+        System.out.println("HashSet без чоловіків"+userSet);
     }
 }
