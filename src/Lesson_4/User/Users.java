@@ -1,14 +1,14 @@
 package Lesson_4.User;
 
-public class User {
+public class Users {
     private int id;
     private String name;
     private int age;
 
-    public User() {
+    public Users() {
     }
 
-    public User(int id, String name, int age) {
+    public Users(int id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
