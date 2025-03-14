@@ -5,6 +5,9 @@ import Lesson_4.User_2.Car;
 import Lesson_4.User_2.Gender;
 import Lesson_4.User_2.Skills;
 import Lesson_4.User_2.User;
+import Lesson_4.ZOO.Person;
+import Lesson_4.ZOO.Pet;
+import Lesson_4.ZOO.ZooClub;
 
 import java.util.*;
 
@@ -53,6 +56,7 @@ public class Main {
         userSet.add(new User(9,"tanya","pupkin","asd@asd.com",31, Gender.FEMALE, Arrays.asList(new Skills("QA",2),
                 new Skills("html",1),new Skills("pyton",1),new Skills("css",4)), null));
         userSet.add(new User(10,"sveta","pupkin","asd@asd.com",31, Gender.FEMALE, Arrays.asList(new Skills("html",1),new Skills("pyton",1)), null));
+
         //_______видалення чоловіків______________________________________
 
         Iterator<User>iterator = userSet.iterator();
@@ -82,5 +86,37 @@ public class Main {
                 new Skills("html",1),new Skills("pyton",1),new Skills("css",4)), null));
         treeSet.add(new User(10,"sveta","pupkin","asd@asd.com",31, Gender.FEMALE, Arrays.asList(new Skills("html",1),new Skills("pyton",1)), null));
         System.out.println("TreeSet"+treeSet);
+
+//______________________ZooClub____________________________
+        ZooClub zooClub = new ZooClub();
+
+        Person vasya =new Person("vasya");
+        Person kolya =new Person("kolya");
+        Person misha =new Person("misha");
+
+       Pet pet1=new Pet("Cat");
+       Pet pet2=new Pet("Dog");
+       Pet pet3=new Pet("Horse");
+       Pet pet4=new Pet("Pig");
+
+        zooClub.addPerson(vasya);
+        zooClub.addPerson(kolya);
+        zooClub.addPerson(misha);
+
+        zooClub.addPet(vasya, pet1);
+        zooClub.addPet(kolya, pet2);
+        zooClub.addPet(kolya, pet3);
+        zooClub.addPet(vasya, pet4);
+        zooClub.addPet(vasya, pet2);
+        zooClub.printClub();
+
+        zooClub.removePet(vasya, pet1);
+        zooClub.printClub();
+
+        zooClub.removePerson(misha);
+
+        zooClub.removePetFromAll(pet2);
+        zooClub.printClub();
+
     }
 }
