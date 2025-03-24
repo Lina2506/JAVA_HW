@@ -1,5 +1,8 @@
 package Lesson_5;
 
+import Lesson_5.auto.Auto;
+import Lesson_5.auto.Owner;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -52,5 +55,31 @@ public class Main {
                 .map(n->n*3)
                 .toArray();
         System.out.println(Arrays.toString(tripledNumbers));
+
+        //____________________________________AUTO__________________________________
+        ArrayList<Auto> autoList =new ArrayList<>(Arrays.asList(
+                new Auto("BMW", 500, new Owner("vasya", 20, 2), 100000, 2020),
+                new Auto("hundai", 100, new Owner("petya",50,20), 20000, 2020),
+                new Auto("Opel", 120, new Owner("kolya",43,15),10000,2010),
+                new Auto("mazda",170, new Owner("max", 26,5), 30000,2015),
+                new Auto("shkoda", 110, new Owner("olya",40,10),34000,2019),
+                new Auto("infinity", 338, new Owner("philipo",36,4), 70000,2024),
+                new Auto("mercedes", 350, new Owner("ganc", 60,40),25000, 2017)
+        ));
+        autoList.stream().limit(autoList.size()/2).forEach(Auto::repair);
+        System.out.println(autoList);
+
+        autoList.stream()
+                .map(auto -> auto.owner)
+                .filter(owner -> owner.getExp()<5 && owner.getAge() >25)
+                .forEach(Owner::exp);
+
+
+        double totalCost= autoList.stream()
+                .mapToDouble(auto-> auto.getPrice())
+                .sum();
+        System.out.println(totalCost);
+
+        autoList.forEach(System.out::println);
     }
 }
